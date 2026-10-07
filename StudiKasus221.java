@@ -21,6 +21,42 @@ public class StudiKasus221 {
 
         String status;
 
-       
+        if (jenisKegiatan.equalsIgnoreCase("BELMAWA") ||
+            jenisKegiatan.equalsIgnoreCase("BAKORMA") ||
+            jenisKegiatan.equalsIgnoreCase("MANDIRI")) {
+
+            if (peringkat >= 1 && peringkat <= 3) {
+                if (jumlahDokumen >= 4) {
+                    status = "Dana penghargaan diberikan.";
+                } else {
+                    status = "Dokumen tidak lengkap. Dana penghargaan tidak diberikan.";
+                }
+            } else {
+                status = "Bukan juara 1-3. Dana penghargaan tidak diberikan.";
+            }
+
+        } else if (jenisKegiatan.equalsIgnoreCase("PKM")) {
+
+            if (statusPendanaan.equalsIgnoreCase("YA")) {
+                if (jumlahDokumen >= 4) {
+                    status = "Dana penghargaan diberikan.";
+                } else {
+                    status = "Dokumen tidak lengkap. Dana penghargaan tidak diberikan.";
+                }
+            } else {
+                status = "Tidak lolos pendanaan. Dana penghargaan tidak diberikan.";
+            }
+
+        } else {
+            status = "Kegiatan tidak memenuhi ketentuan.";
+        }
+
+        System.out.println("\n=== HASIL VALIDASI ===");
+        System.out.println("Nama   : " + nama);
+        System.out.println("Kegiatan : " + jenisKegiatan);
+        System.out.println("Dokumen  : " + jumlahDokumen);
+        System.out.println("Peringkat: " + peringkat);
+        System.out.println("Status   : " + status);
+
     }
 }
